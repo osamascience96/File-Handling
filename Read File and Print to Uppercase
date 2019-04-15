@@ -1,0 +1,15 @@
+# Write a program to read through a file and print the contents of the file (line by line) all in upper case
+# Exercise 1
+fname = input('Enter the file Name: ')
+
+# open file
+try:
+    fhand = open(fname)
+except:
+    print('Wrong file name!')
+    quit()
+
+# print the contents from the file in upper case 
+for line in fhand:
+    print(line.upper())
+
