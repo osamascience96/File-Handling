@@ -1,0 +1,13 @@
+# Read and write files
+
+# Writing the files 
+fw = open('sample.txt', 'w') # open the file (create if not created) and write in the stream of file in memory
+fw.write('This is a file to write \n')
+fw.write('Brother of my sweet niece is born today\n')
+fw.close() # best practice to close the file after reading or writing (otherwise python will close it for you)
+
+# Reading the files 
+fr = open('sample.txt', 'r') # object for reading the file 
+text = fr.read()
+fr.close() # close stream of file in memory and save to hdd
+print(text)
