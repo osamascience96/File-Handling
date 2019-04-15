@@ -1,0 +1,24 @@
+# extract the floating value when encounter the line X-DSPAM-Confidence and count the average spam confidence
+
+fname = input('Enter the name of file: ')
+
+try:
+    fhand = open(fname)
+except:
+    print('Wrong file name!')
+    quit()
+
+# variables 
+count = 0
+finalValue = 0
+
+# iterate through lines 
+for line in fhand:
+    if 'X-DSPAM-Confidence:' in line:
+        atpos = line.find(':') + 1
+        sliceString = line[(atpos + 1): ]
+        finalValue = finalValue + float(sliceString)
+        count = count + 1
+
+avgConfidence = finalValue / count 
+print(avgConfidence)
