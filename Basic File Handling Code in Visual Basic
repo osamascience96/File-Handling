@@ -1,0 +1,63 @@
+' This code contains supports the older version of the visual basic.net 
+' Version 2010 or 2013 or 2015 will be supportable
+
+Module Module1
+
+' This is a scatterd code in visual basic for the file handling 
+
+    Dim filenum As Integer = FreeFile() ' Init the nextfile number avaliable in the FileOpen Function
+
+    Sub Main()
+        '..\ one directory back'
+        'FileOpen(filenum, "..\hello.txt", OpenMode.Output)'
+
+        ' check if the file exists or not 
+
+        If IO.File.Exists("hello.txt") Then
+            OpenFile(filenum, "hello.txt", OpenMode.Append)
+            FileProgram()
+            'ReadingData()
+            CloseFile(filenum)
+        Else
+            Console.WriteLine("Couldn't not find your fucking file")
+        End If
+
+        Console.ReadLine()
+
+    End Sub
+
+    Sub FileProgram()
+        Dim input As String = ""
+
+        'Loop until user enters stop 
+        While input.ToUpper <> "STOP"
+            Console.Write("Enter a Stop (STOP to stop): ")
+            input = Console.ReadLine
+
+            If input.ToUpper <> "STOP" Then
+                PrintLine(filenum, input)
+            End If
+        End While
+    End Sub
+
+    Sub ReadingData()
+        'Reading from the file 
+        While Not EOF(filenum)
+            Console.WriteLine(LineInput(filenum))
+        End While
+    End Sub
+
+    Sub OpenFile(ByVal fileId As Integer, ByVal fileName As String, ByVal mode As OpenMode)
+        FileOpen(fileId, fileName, mode)
+    End Sub
+
+    Sub WriteToFile(ByRef data As String)
+        PrintLine(filenum, data)
+    End Sub
+
+    Sub CloseFile(ByVal fileId)
+        FileClose(fileId)
+    End Sub
+
+
+End Module
