@@ -1,0 +1,25 @@
+Module Module1
+
+    Sub Main()
+        ' Appending to file
+
+        FileOpen(1, "hello.txt", OpenMode.Append)
+
+        ' Loop until the user enters STOP 
+        Dim input = " "
+
+        While input.ToUpper <> "STOP"
+            Console.Write("Enter a Sentence (STOP to stop): ")
+            input = Console.ReadLine()
+
+            If input.ToUpper <> "STOP" Then
+                PrintLine(1, input)
+            End If
+        End While
+
+        FileClose(1)
+
+
+    End Sub
+
+End Module
