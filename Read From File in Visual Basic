@@ -1,0 +1,38 @@
+Module Module1
+
+    Sub Main()
+        ' Reading from the file
+
+        Dim fileNum As Integer
+        fileNum = FreeFile()
+
+         Dim fileNum As Integer
+        fileNum = FreeFile()
+
+
+        ' if the file do not exists
+        'Another way of reading from a file 
+        If IO.File.Exists("hello.txt") Then
+            FileOpen(fileNum, "hello.txt", OpenMode.Input)
+
+            '+++++++++++++++++++++++++++++++++++++++
+            'one way of reading a file
+            'reading from the file 
+            'Console.WriteLine(LineInput(fileNum))
+            'Console.WriteLine(LineInput(fileNum))
+            'Console.WriteLine(LineInput(fileNum))
+            'Console.WriteLine(LineInput(fileNum))
+            '+++++++++++++++++++++++++++++++++++++++
+
+            While Not EOF(fileNum)
+                Console.WriteLine(LineInput(fileNum))
+            End While
+
+            FileClose(fileNum)
+        Else
+            Console.WriteLine("Could not find the file")
+        End If
+        
+    End Sub
+
+End Module
