@@ -1,0 +1,20 @@
+#Attempt to skip the white spaces in the file 
+
+# open the file
+fhand = open('mail_short.txt')
+# iterate the data in the file 
+for line in fhand:
+    # remove the white space
+    line = line.rstrip()
+    # print line that starts with From: 
+    # Method 1
+    # if line.startswith('From'):
+    #     print(line)
+    # Method 2
+    if not line.startswith('From'):
+        continue
+    print(line)
+# close the file
+fhand.close()
+
+# The newline \n is considered whitespace and is removed using the rstrip method
