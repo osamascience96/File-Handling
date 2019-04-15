@@ -1,0 +1,10 @@
+#count the number of lines in the file 
+fhand = open('sample.txt')
+# variable to count the number of lines 
+count = 0
+# iterate through the number of lines
+for line in fhand:
+    count = count + 1
+print('Line Count: ', count)
+
+fhand.close()
