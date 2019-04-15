@@ -1,0 +1,23 @@
+# Downloading files from web 
+from urllib import request
+
+# url of sample csv file containing data
+csv_url = 'https://sample-videos.com/csv/Sample-Spreadsheet-10-rows.csv'
+
+def download_sample_data(url):
+    response = request.urlopen(url) # open url using the function 
+    csv = response.read() # read data from reponse and store it in memory stream (response type data in csv variable)
+    # convert the csv variable to string and every alphanumeric data will be a raw string 
+    csv_str = str(csv)
+    # seperate the data by a specified seperator in data using split function 
+    # The double backslash is used because it has to ignore the \r in the string to target the \n in the string which is \r\n
+    lines = csv_str.split("\\n") 
+    dest_url = r'person.csv' # using r with string ignores all the escape characters in the string to avoid path failure
+    # writing the data to the file 
+    fw = open(dest_url, 'w')
+    # reading data from lines variable
+    for line in lines:
+        fw.write(line + "\n")
+    fw.close()
+
+download_sample_data(csv_url)
