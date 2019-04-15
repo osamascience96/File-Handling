@@ -1,0 +1,4 @@
+# Reading the whole file as input 
+fhand = open('sample.txt')
+input = fhand.read() # input the data from the whole file 
+print(len(input)) #print the the number of characters in the whole file 
